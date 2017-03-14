@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   # Location Routes
   get '/cities', to: 'locations#index'
+  get '/cities/:id', to: 'locations#show', as: 'city'
 end
