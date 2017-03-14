@@ -9,4 +9,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(article_id)
   end
 
+  def new
+    @article = Article.new
+  end
+
 end
