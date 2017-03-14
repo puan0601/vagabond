@@ -7,5 +7,6 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show', as: 'user'
   # Location Routes
   get '/cities', to: 'locations#index'
+  get '/cities/:id', to: 'locations#show', as: 'city'
 
 end
