@@ -8,4 +8,7 @@ Rails.application.routes.draw do
   # Location Routes
   get '/cities', to: 'locations#index'
 
-end
+  # Articles Routes
+  get '/articles', to: 'articles#index'
+  
+
