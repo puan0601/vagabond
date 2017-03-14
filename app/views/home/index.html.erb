@@ -1,1 +1,11 @@
-Vagabon(d) coming soon!
+<div class="container">
+  <div class="carousel carousel-slider">
+    <% @locations.each do |location| %>
+      <a class="carousel-item" href="<%= city_path(location) %>"><img src="<%= location.url %>"></a>
+    <% end %>
+  </div>
+</div>
+
+<% @locations.each do |location| %>
+  <%= location.name %>
+<% end %>

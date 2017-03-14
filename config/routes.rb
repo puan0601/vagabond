@@ -9,4 +9,9 @@ Rails.application.routes.draw do
   get '/cities', to: 'locations#index'
   get '/cities/:id', to: 'locations#show', as: 'city'
 
+
+  # Articles Routes
+  get '/articles', to: 'articles#index'
+  
+
 end
