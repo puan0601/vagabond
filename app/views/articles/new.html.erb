@@ -1,0 +1,9 @@
+<%= form_for @article do |f| %>
+  <div>
+    <%= f.fields_for :location do |s| %>
+    <%= s.text_field :name , placeholder: "Name" %>
+  </div>
+  <% end %>
+  
+  <%= f.submit "Create new article" %>
+<% end %>
