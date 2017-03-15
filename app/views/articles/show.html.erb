@@ -1,11 +1,11 @@
 <div class="container">
   <div class="card horizontal">
     <div class="card-image">
-      <img src="<%= @article.user.image %>">
+      <a href="<%= user_path(@article.user) %>"><img src="<%= @article.user.image %>"></a>
     </div>
     <div class="card-stacked">
       <div class="card-content">
-        <p class="truncate"><h4><%= @article.user.first_name %> wrote...</h4></p>
+        <a href="<%= user_path(@article.user) %>"><p class="truncate"><h4><%= @article.user.first_name %> wrote...</h4></p></a>
       </div>
     </div>
   </div>
