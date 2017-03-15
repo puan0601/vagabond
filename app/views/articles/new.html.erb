@@ -1,16 +1,42 @@
-<%= form_for @article do |f| %>
-  <div>
-    
-      <%= f.collection_select Location.order(:name),:location_id,:name, include_blank: true %>
-  
-  </div>
-  <div>
-    <%= f.text_field :title, placeholder: "title" %>
-  </div>
-  <div>
-    <%= f.text_field :content, :cols => "10", :rows => "10", placeholder: "content"  %>
+<form>
+<div class="input-field col s6 offset-s3">
+    <select>
+      <option value="" disabled selected>Choose location</option>
+      <option value="1">San Francisco</option>
+      <option value="2">Oakland</option>
+      <option value="3">Berkeley</option>
+    </select>
+    <label>Location</label>
   </div>
 
-  
-  <%= f.submit "Create new article" %>
-<% end %>
+</form>
+<%= form_for @article do |f| %>
+
+    <div class="input-field col s6 offset-s3">
+    <select>
+      <option value="" disabled selected>Choose location</option>
+      <option value="1">San Francisco</option>
+      <option value="2">Oakland</option>
+      <option value="3">Berkeley</option>
+    </select>
+    <label>Location</label>
+  </div>
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <%= select_tag(:location_id, ['sdsd', 'sdfsdf']) %>
+        </div>
+        <div class="input-field col s6 offset-s3">
+          <%= f.text_field :title, placeholder: "title" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+            <%= f.text_area(:content, size: '50x10', placeholder: "Type article") %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6 offset-s3">
+          <%= f.submit "Create new article" %>
+        </div>
+      </div>
+      <% end %>
