@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # User Routes
   get '/users/:id', to: 'users#show', as: 'user'
+
   # Location Routes
   get '/cities', to: 'locations#index'
   get '/cities/:id', to: 'locations#show', as: 'city'
@@ -12,6 +13,6 @@ Rails.application.routes.draw do
 
   # Articles Routes
   get '/articles', to: 'articles#index'
-  
+
 
 end
