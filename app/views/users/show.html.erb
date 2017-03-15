@@ -26,14 +26,16 @@
   </div>
 
   <% if current_user.id.to_s === params[:id].to_s %>
-    <%= button_to "Edit", edit_user_registration_path , method: "get" %>
+    <%= button_to "Edit Profile", edit_user_registration_path , method: "get" %>
   <% end %>
 
   <div class="articles">
+  <h6><%= link_to 'New Article', new_article_path %></h6>
     <ul>
       <% @user.articles.each do |article| %>
       <li><%= article.title %></li>
       <li><%= article.content %></li>
+      <li><%= link_to 'Edit Article', edit_article_path(article) %></li>
       <% end %>
     </ul>
   </div>
