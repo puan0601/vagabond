@@ -32,6 +32,4 @@ $(document).on('turbolinks:load', function() {
   $(".button-collapse").sideNav();
   $(".dropdown-button").dropdown();
 
-  $('.slider,location').slider({fullWidth: true, height: 500, indicators: false});
-
 });
