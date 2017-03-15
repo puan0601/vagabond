@@ -19,5 +19,6 @@
 $(document).on('turbolinks:load', function() {
 
   $('.slider').slider({fullWidth: true, height: 700});
+  $(".button-collapse").sideNav();
 
 });
