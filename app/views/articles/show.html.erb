@@ -1,6 +1,27 @@
-<h4>Single Article Page</h4>
-
-<div>
-  <p><%= @article.title %></p>
-  <p><%= @article.content %></p>
+<div class="container">
+  <div class="card horizontal">
+    <div class="card-image">
+      <img src="<%= @article.user.image %>">
+    </div>
+    <div class="card-stacked">
+      <div class="card-content">
+        <p class="truncate"><h4><%= @article.user.first_name %> wrote...</h4></p>
+      </div>
+    </div>
+  </div>
+  <div class="col s12 m7">
+    <h2 class="header"><%= @article.title %></h2>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="<%= @article.location.image %>">
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <h6><%= @article.created_at.strftime("%B %d, %Y") %> - <%= @article.location.name %></h6>
+          <hr>
+          <p><%= @article.content %></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
