@@ -11,12 +11,19 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
+    @locations = Location.all
   end
 
   def create
-    @article = Article.create(article_params)
-    redirect_to @article
+
+    @article = Article.new(article_params)
+    @article.user_id = current_user.id
+    if @article.save
+      redirect_to @article
+    end
   end
+
+  private
 
   def article_params
     params.require(:article).permit(:location_id, :user_id, :title, :content)

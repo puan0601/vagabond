@@ -25,6 +25,11 @@
 <div class="row">
   <div class="col s6">
     <h4 class="center">Popular Locations</h4>
+      <ul>
+        <% @locations.each do |location| %>
+          <li><%= link_to location.name, city_path(location) %></li>
+        <% end %>
+      </ul>
   </div>
   <div class="col s6">
     <h4 class="center">Recent Posts</h4>
