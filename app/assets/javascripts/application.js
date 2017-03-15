@@ -18,6 +18,17 @@
 
 $(document).on('turbolinks:load', function() {
 
+
+  //initializes dropdown location menu on new article form
+    $('select').material_select();
+ 
+  
+  //initializes content textbox on new article form
+  $('#textarea1').val('New Text');
+  $('#textarea1').trigger('autoresize');
+
+
   $('.slider').slider({fullWidth: true, height: 700});
 
 });
+

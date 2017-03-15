@@ -9,4 +9,15 @@ class ArticlesController < ApplicationController
     @article = Article.find(article_id)
   end
 
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.create(article_params)
+  end
+
+  def article_params
+    params.require(:article).permit(:location_id, :user_id, :title, :content)
+  end
 end
