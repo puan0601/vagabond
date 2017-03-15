@@ -19,13 +19,9 @@ Rails.application.routes.draw do
 
   # Articles Routes
   get '/articles', to: 'articles#index'
-<<<<<<< HEAD
-  get '/users/:id/articles/new', to: 'articles#new', as: 'new_article'  
-  post '/users/:id/articles', to: 'articles#create', as: 'create_article'
-=======
+
   get '/articles/new', to: 'articles#new', as: 'new_article'
   get '/articles/:id', to: 'articles#show', as: "article"
   post '/articles', to: 'articles#create'
->>>>>>> b88a5bf5f2d19408e7ea6e5b45c4b91dcad0ea38
 
 end
