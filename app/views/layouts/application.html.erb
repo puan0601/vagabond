@@ -5,26 +5,37 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
   </head>
 
   <body>
-      <nav>
-        <div class="nav-wrapper">
-          <a href="/" class="brand-logo">&nbsp&nbspVagabon</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <% if !current_user %>
-              <li><%= link_to "Sign Up!", new_user_registration_path %></li>
-              <li><%= link_to "Sign In!", new_user_session_path %></li>
-            <% elsif current_user %>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo">&nbsp&nbspVagabon</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <% if !current_user %>
+            <li><%= link_to "Sign Up!", new_user_registration_path %></li>
+            <li><%= link_to "Sign In!", new_user_session_path %></li>
+          <% elsif current_user %>
             <li><%= link_to "Profile!", user_path(current_user) %></li>
-              <li><%= link_to "Sign Out!", destroy_user_session_path, method: "delete" %></li>
-            <% end %>
-          </ul>
-        </div>
-      </nav>
+            <li><%= link_to "Sign Out!", destroy_user_session_path, method: "delete" %></li>
+          <% end %>
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+          <% if !current_user %>
+            <li><%= link_to "Sign Up!", new_user_registration_path %></li>
+            <li><%= link_to "Sign In!", new_user_session_path %></li>
+          <% elsif current_user %>
+            <li><%= link_to "Profile!", user_path(current_user) %></li>
+            <li><%= link_to "Sign Out!", destroy_user_session_path, method: "delete" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
         <%= yield %>
   </body>
 </html>

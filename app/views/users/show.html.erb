@@ -1,29 +1,40 @@
-<h3>Welcome to your Profile Page, <%= @user.first_name %></h3>
+<div class="container">
+  <% if current_user.id.to_s === params[:id].to_s %>
+  <h3>Welcome to your Profile Page, <%= @user.first_name %></h3>
+  <% else %>
+  <h3><%= @user.first_name %></h3>
+  <% end %>
 
-<div class="picture">
-  <%= @user.image %>
-</div>
 
-<div class="info">
-  <ul>
-    <li>Name:</li>
-    <li><%= @user.first_name %> <%= @user.last_name %></li>
-  </ul>
-  <ul>
-    <li>Date Joined:</li>
-    <li><%= @user.created_at %></li>
-  </ul>
-  <ul>
-    <li>Current City:</li>
-    <li><%= @user.city %></li>
-  </ul>
-</div>
+  <div class="picture">
+    <%= @user.image %>
+  </div>
 
-<div class="articles">
-  <ul>
-    <% @user.articles.each do |article| %>
+  <div class="info">
+    <ul>
+      <li>Name:</li>
+      <li><%= @user.first_name %> <%= @user.last_name %></li>
+    </ul>
+    <ul>
+      <li>Date Joined:</li>
+      <li><%= @user.created_at %></li>
+    </ul>
+    <ul>
+      <li>Current City:</li>
+      <li><%= @user.city %></li>
+    </ul>
+  </div>
+
+  <% if current_user.id.to_s === params[:id].to_s %>
+    <%= button_to "Edit", edit_user_registration_path , method: "get" %>
+  <% end %>
+
+  <div class="articles">
+    <ul>
+      <% @user.articles.each do |article| %>
       <li><%= article.title %></li>
       <li><%= article.content %></li>
-    <% end %>
-  </ul>
+      <% end %>
+    </ul>
+  </div>
 </div>
