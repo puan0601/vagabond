@@ -1,5 +1,5 @@
 
-    <%= form_for @article do |f| %>
+    <%= form_for @article, url: create_article_path do |f| %>
       <div class="row">
         <div class="input-field col s6 offset-s3">
           <%=collection_select(:location, :location_id, Location.all, :id, :name)%>

@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   # Articles Routes
   get '/articles', to: 'articles#index'
-  get '/articles/new', to: 'articles#new', as: 'new_article'  
-  post '/articles', to: 'articles#create' 
+  get '/users/:id/articles/new', to: 'articles#new', as: 'new_article'  
+  post '/users/:id/articles', to: 'articles#create', as: 'create_article'
 
 end
