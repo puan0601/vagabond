@@ -1,7 +1,7 @@
 <div class="container">
   <div class="carousel carousel-slider">
     <% @locations.each do |location| %>
-      <a class="carousel-item" href="<%= city_path(location) %>"><img src="<%= location.url %>"></a>
+      <a class="carousel-item" href="<%= city_path(location) %>"><img src="<%= location.image %>"></a>
     <% end %>
   </div>
 </div>
