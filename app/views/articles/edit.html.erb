@@ -1,6 +1,18 @@
-<h1>Editing Article</h1>
 
-<%= render 'form', article: @article %>
+<%= form_for @article do |f| %>
+  <div class="row">
+    <div class="input-field col s6 offset-s3">
+      <%=collection_select(:article, :location_id, @locations, :id, :name, prompt: true)%>
+    </div>
+    <div class="input-field col s6 offset-s3">
+      <%= f.text_field :title, placeholder: @article.title %>
+    </div>
+    <div class="input-field col s6 offset-s3">
+      <%= f.text_area(:content, cols: 40, rows: 40, placeholder: @article.content) %>
+    </div>
+    <div class="input-field col s6 offset-s3">
+      <%= f.submit "Update Your Article" %>
+    </div>
+  </div>
+<% end %>
 
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>

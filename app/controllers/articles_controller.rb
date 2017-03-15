@@ -23,6 +23,22 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    @locations = Location.all
+    @article = Article.find_by_id(params[:id])
+    if current_user.id = @article.user_id
+      render :edit
+    else
+      redirect_to user_path
+    end
+  end
+
+  def update
+    @article = Article.find_by_id(params[:id])
+    @article.update_attributes(article_params)
+    redirect_to article_path
+  end
+
   private
 
   def article_params
