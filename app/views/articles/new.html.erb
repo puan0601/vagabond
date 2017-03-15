@@ -1,9 +1,16 @@
 <%= form_for @article do |f| %>
   <div>
-    <%= f.fields_for :location do |s| %>
-    <%= s.text_field :name , placeholder: "Name" %>
+    
+      <%= f.collection_select Location.order(:name),:location_id,:name, include_blank: true %>
+  
   </div>
-  <% end %>
+  <div>
+    <%= f.text_field :title, placeholder: "title" %>
+  </div>
+  <div>
+    <%= f.text_field :content, :cols => "10", :rows => "10", placeholder: "content"  %>
+  </div>
+
   
   <%= f.submit "Create new article" %>
 <% end %>
