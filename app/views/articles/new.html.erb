@@ -2,13 +2,13 @@
     <%= form_for @article do |f| %>
       <div class="row">
         <div class="input-field col s6 offset-s3">
-          <%=collection_select(:location, :location_id, Location.all, :id, :name)%>
+          <%=collection_select(:article, :location_id, @locations, :id, :name, prompt: true)%>
         </div>
         <div class="input-field col s6 offset-s3">
           <%= f.text_field :title, placeholder: "title" %>
         </div>
         <div class="input-field col s6 offset-s3">
-          <%= f.text_area(:content, cols: 40, rows: 15, placeholder: "Type article here") %>
+          <%= f.text_area(:content, cols: 40, rows: 40, placeholder: "Type article here") %>
         </div>
         <div class="input-field col s6 offset-s3">
           <%= f.submit "Create new article" %>

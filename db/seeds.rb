@@ -41,16 +41,12 @@ location_data = [
           },
           { name: "Seattle",
             state: "Washington",
-            country: "USA"
-          }
-                ]
-                
-locations = Location.create(location_data)
-
             image: "http://www.homewoodsuitesseattle.com/img/home/hotel-near-seattle-space-needle.jpg",
             country: "USA"
           }
-                ]
+          ]
+
+locations = Location.create(location_data)
 
 # user_data = [{
 #   email:'test@test.com',
