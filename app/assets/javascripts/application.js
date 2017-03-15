@@ -16,8 +16,8 @@
 //= require materialize-sprockets
 //= require_tree .
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function() {
 
-  $('.carousel.carousel-slider').carousel({fullWidth: true});
+  $('.slider').slider({fullWidth: true, height: 700});
 
 });
