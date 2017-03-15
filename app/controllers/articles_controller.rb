@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
     @article = Article.create(article_params)
   end
 
-def article_params
-    params.require(:article).permit(:name, :location_id, :user_id, :title, :content)
+  def article_params
+    params.require(:article).permit(:location_id, :user_id, :title, :content)
   end
 end

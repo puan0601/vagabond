@@ -1,42 +1,17 @@
-<form>
-<div class="input-field col s6 offset-s3">
-    <select>
-      <option value="" disabled selected>Choose location</option>
-      <option value="1">San Francisco</option>
-      <option value="2">Oakland</option>
-      <option value="3">Berkeley</option>
-    </select>
-    <label>Location</label>
-  </div>
 
-</form>
-<%= form_for @article do |f| %>
-
-    <div class="input-field col s6 offset-s3">
-    <select>
-      <option value="" disabled selected>Choose location</option>
-      <option value="1">San Francisco</option>
-      <option value="2">Oakland</option>
-      <option value="3">Berkeley</option>
-    </select>
-    <label>Location</label>
-  </div>
+    <%= form_for @article do |f| %>
       <div class="row">
         <div class="input-field col s6 offset-s3">
-          <%= select_tag(:location_id, ['sdsd', 'sdfsdf']) %>
+          <%=collection_select(:location, :location_id, Location.all, :id, :name)%>
         </div>
         <div class="input-field col s6 offset-s3">
           <%= f.text_field :title, placeholder: "title" %>
         </div>
-      </div>
-      <div class="row">
         <div class="input-field col s6 offset-s3">
-            <%= f.text_area(:content, size: '50x10', placeholder: "Type article") %>
+          <%= f.text_area(:content, cols: 40, rows: 15, placeholder: "Type article here") %>
         </div>
-      </div>
-      <div class="row">
         <div class="input-field col s6 offset-s3">
           <%= f.submit "Create new article" %>
         </div>
       </div>
-      <% end %>
+    <% end %>
