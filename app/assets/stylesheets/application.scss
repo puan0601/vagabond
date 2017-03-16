@@ -29,3 +29,17 @@
  .btn {
    background-color: #94C1AE;
  }
+
+footer {
+  background-color: #94C1AE !important;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}

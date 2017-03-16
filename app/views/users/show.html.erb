@@ -1,13 +1,6 @@
 <div class="row">
-  <div class="col s12 m4">
-    <div class="container">
-      <% if current_user && current_user.id.to_s === params[:id].to_s %>
-      <h4>Welcome, <%= @user.first_name %></h4>
-      <% else %>
+  <div class="col s12 m6">
       <h4><%= @user.first_name %></h4>
-      <% end %>
-    </div>
-    <div class="container">
       <img class="responsive-img" src="<%= @user.image %>">
       <ul>
         <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
@@ -23,9 +16,8 @@
           <%= button_to "Edit", edit_user_registration_path , method: "get", class: "waves-effect waves-light btn" %>
         <% end %>
       </div>
-    </div>
   </div>
-  <div class="col s12 m8">
+  <div class="col s12 m6">
     <% if current_user && current_user.id.to_s === params[:id].to_s %>
       <h4 class="center">Your Posts</h4>
     <% else %>
