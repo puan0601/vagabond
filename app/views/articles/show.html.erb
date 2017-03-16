@@ -23,6 +23,7 @@
           <%= link_to 'mode_edit', edit_article_path(@article), class: "right material-icons" %>
           <% end %></h6>
           <hr>
+          <p><%= cl_image_tag(@article.avatar, :height => 200, :crop => :thumb) %></p>
           <p><%= @article.content %></p>
         </div>
       </div>
