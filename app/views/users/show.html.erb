@@ -37,8 +37,9 @@
         <img src="<%= article.user.image %>">
       </div>
       <div class="card-stacked">
+        <span class="card-title"><%= article.title %></span>
         <div class="card-content">
-          <p class="truncate"><%= article.content %></p>
+          <p><%= truncate(article.content, length: 75, separator: ' ')  %></p>
         </div>
         <div class="card-action">
           <%= link_to "Read More!", article_path(article) %>
