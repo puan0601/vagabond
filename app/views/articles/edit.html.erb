@@ -1,18 +1,15 @@
-
-<%= form_for @article do |f| %>
+<h2 class="center">Edit Post</h2>
+<hr>
+<div class="container">
   <div class="row">
-    <div class="input-field col s6 offset-s3">
-      <%=collection_select(:article, :location_id, @locations, :id, :name, prompt: true)%>
+    <div class="col s12 m5 center">
+      <%= render "change" %>
     </div>
-    <div class="input-field col s6 offset-s3">
-      <%= f.text_field :title, placeholder: @article.title %>
+    <div class="col m2">
+
     </div>
-    <div class="input-field col s6 offset-s3">
-      <%= f.text_area(:content, cols: 40, rows: 40, placeholder: @article.content) %>
-    </div>
-    <div class="input-field col s6 offset-s3">
-      <%= f.submit "Update Your Article" %>
+    <div class="z-depth-4 col s12 m5">
+      <%= render "edit" %>
     </div>
   </div>
-<% end %>
-
+</div>
