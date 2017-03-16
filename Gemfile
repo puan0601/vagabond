@@ -34,8 +34,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+# Handles upload controller
+gem 'carrierwave'
+# Cloud hosting and serving of profile pics
 gem 'cloudinary'
-#for use when deploying to heroku
+# For use when deploying to heroku
 gem 'rails_12factor', group: :production
 
 group :development, :test do
