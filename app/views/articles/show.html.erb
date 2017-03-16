@@ -17,15 +17,12 @@
       </div>
       <div class="card-stacked">
         <div class="card-content">
-          <h6><%= @article.created_at.strftime("%B %d, %Y") %> - <%= @article.location.name %></h6>
+          <h6><%= @article.created_at.strftime("%B %d, %Y") %> - <%= @article.location.name %><% if current_user && current_user.id == @article.user.id %>
+          <%= link_to 'mode_edit', edit_article_path(@article), class: "right material-icons" %>
+          <% end %></h6>
           <hr>
           <p><%= @article.content %></p>
         </div>
-        <% if current_user && current_user.id == @article.user.id %>
-          <div class="col m2">
-            <%= link_to 'mode_edit', edit_article_path(@article), class: "material-icons" %>
-          </div>
-        <% end %>
       </div>
     </div>
   </div>

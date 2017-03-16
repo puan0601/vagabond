@@ -34,7 +34,11 @@
         </div>
         <div class="card-stacked">
 
-          <span class="card-title"><%= article.title %></span>
+          <span class="card-title"><%= article.title %>
+          <% if current_user && current_user.id == article.user.id %>
+          <%= link_to 'mode_edit', edit_article_path(article), class: "right material-icons" %>
+          <% end %>
+          </span>
           <div class="card-content">
             <p><%= truncate(article.content, length: 75, separator: ' ')  %></p>
           </div>
@@ -43,11 +47,6 @@
             <!-- <div class="col l1 push-l10"> -->
             <!-- </div> -->
           </div>
-          <% if current_user && current_user.id == article.user.id %>
-          <div class="col m2">
-            <%= link_to 'mode_edit', edit_article_path(article), class: "material-icons" %>
-          </div>
-          <% end %>
         </div>
       </div>
       <% end %>
