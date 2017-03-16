@@ -4,36 +4,26 @@
   <%= devise_error_messages! %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %>*<br />
     <%= f.text_field :first_name, autofocus: true, :required => true %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %>*<br />
     <%= f.text_field :last_name, :required => true %>
   </div>
 
   <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, :required => true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>*<br />
     <%= f.email_field :email, :required => true %>
   </div>
 
   <div class="field">
-    <%= f.label :password %>
+    <%= f.label :password %>*
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
   <div class="actions center">
@@ -41,4 +31,11 @@
   </div>
   <br>
   <% end %>
+  <hr>
+  <h5 class="center">Already a User?</h5>
+  <div class="center">
+    <%= button_to "Log In", new_user_session_path, method: "get", class: "waves-effect waves-light btn" %>
+  </div>
+  <br>
+  <p class="right">* = required</p>
 </div>
