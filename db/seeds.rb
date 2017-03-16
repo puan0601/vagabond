@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Location.destroy_all
+Article.destroy_all
 
 location_data = [
           { name: "Oakland",
@@ -45,13 +46,5 @@ location_data = [
             country: "USA"
           }
           ]
-
-locations = Location.create(location_data)
-
-# user_data = [{
-#   email:'test@test.com',
-#
-#
-#   }]
 
 locations = Location.create(location_data)
