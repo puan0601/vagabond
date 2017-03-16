@@ -31,7 +31,9 @@
           <li><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons medium">person</i></a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
-          <li><%= link_to "Cities", cities_path %></li>
+          <li><%= link_to "Create A Post", new_article_path %></li>
+          <li><%= link_to "Browse Cities", cities_path %></li>
+          <hr>
           <% if !current_user %>
             <li><%= link_to "Create Account", new_user_registration_path %></li>
             <li><%= link_to "Log In", new_user_session_path %></li>
