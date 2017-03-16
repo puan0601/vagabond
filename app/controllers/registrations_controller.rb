@@ -3,7 +3,7 @@ class RegistrationsController < Devise::RegistrationsController
   prepend_before_filter :require_no_authentication, only: [:cancel]
 
   def after_update_path_for(resource)
-    user_root_path(resource)
+    user_path(resource)
   end
 
 end
