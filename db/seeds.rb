@@ -54,4 +54,4 @@ locations = Location.create(location_data)
 #
 #   }]
 
-locations = Location.create(location_data)
+
