@@ -32,24 +32,29 @@ class ArticlesController < ApplicationController
       render :edit
     else
       flash[:notice] = "You are not the owner of that article."
-      redirect_to user_path
+      redirect_to article_path(@article)
     end
   end
 
   def update
     @article = Article.find_by_id(params[:id])
-    @article.update_attributes(article_params)
-    redirect_to article_path
+    if current_user.id == @article.user_id
+      @article.update_attributes(article_params)
+      redirect_to article_path(@article)
+    else
+      flash[:notice] = "You are not the owner of that article."
+      redirect_to article_path(@article)
+    end
   end
 
   def destroy
     article = Article.find_by_id(params[:id])
     if current_user.id == article.user_id
       article.destroy
-      redirect_to articles_path
+      redirect_to user_path(current_user)
     else
       flash[:notice] = "You are not the owner of that article."
-      redirect_to user_path
+      redirect_to article_path(article)
     end
   end
 
