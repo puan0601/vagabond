@@ -1,13 +1,25 @@
 <h1 class="center">Cities</h1>
 <div class="container">
-  <ul class="collapsible" data-collapsible="accordion">
-    <% @cities.each do |city| %>
-    <li>
-      <div class="collapsible-header"><a href="<%= city_path(city) %>"><%= city.name %></a></div>
-      <div class="collapsible-body">
-        <a href="<%= city_path(city) %>"><img class="responsive-img" src="<%= city.image %>"></a>
+  <% @cities.each_slice(3) do |grouping| %>
+  <div class="row">
+    <% grouping.each do |city| %>
+      <div class="col m4">
+        <div class="card city-card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="<%= city.image %>">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4"><%= city.name %><i class="material-icons right">more_vert</i></span>
+            <p><%= link_to "Check out posts!", city_path(city) %></p>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><%= city.name %><i class="material-icons right">close</i></span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore</p>
+            <p><%= link_to "Check out posts!", city_path(city) %></p>
+          </div>
+        </div>
       </div>
-    </li>
     <% end %>
-  </ul>
+  </div>
+  <% end %>
 </div>

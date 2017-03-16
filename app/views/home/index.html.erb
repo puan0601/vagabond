@@ -1,14 +1,8 @@
-<div class="slider">
+<div class="slider valign-wrapper">
   <ul class="slides">
     <li>
       <img src="http://www.sftravel.com/sites/sftraveldev.prod.acquia-sites.com/files/SanFrancisco_0.jpg">
       <div class="caption center-align">
-        <h3>Feel like you're drifting?</h3>
-      </div>
-    </li>
-    <li>
-      <img src="http://qtxasset.com/2016-12/las-vegas.jpg?YdgJOxAi7L2fpZtpby8TQORQi3wxsmrc">
-      <div class="caption left-align">
         <h3>Let us guide you...</h3>
       </div>
     </li>
@@ -22,9 +16,10 @@
   </ul>
 </div>
 
+
 <div class="row">
-  <div class="col s12 m6">
-    <h4 class="center">Featured Cities</h4>
+  <div class="col s12 m4">
+    <h4 class="center">Featured City</h4>
     <% @locations.each do |location| %>
       <div class="card horizontal">
         <div class="card-image">
@@ -46,7 +41,7 @@
       <%= button_to "See All Cities", cities_path , method: "get", class: "waves-effect waves-light btn" %>
     </div>
   </div>
-  <div class="col s12 m6">
+  <div class="col s12 m4">
     <h4 class="center">Recent Posts</h4>
     <% @articles.each do |article| %>
     <div class="card horizontal">
@@ -66,5 +61,8 @@
       </div>
     </div>
     <% end %>
+  </div>
+  <div class="col s12 m4">
+
   </div>
 </div>
