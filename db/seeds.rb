@@ -10,11 +10,11 @@ Location.destroy_all
 Article.destroy_all
 
 location_data = [
-          { name: "Oakland",
-            state: "California",
+          { name: "Gibraltar",
+            state: "British Overseas Territory",
 
-            image: "http://www.marklillyphotography.com/wp-content/uploads/2015/02/LakeMerritt_LakeChalet_Pano_Color_Web_2500x1126_20130306_rev1.jpg",
-            country: "USA"
+            image: "http://vipweddingsspain.com/wp-content/uploads/2016/02/Gibraltar.jpg",
+            country: "United Kingdom"
           },
           { name: "San Francisco",
             state: "California",
@@ -22,11 +22,11 @@ location_data = [
             image: "http://www.sftravel.com/sites/sftraveldev.prod.acquia-sites.com/files/SanFrancisco_0.jpg",
             country: "USA"
           },
-          { name: "Berkeley",
-            state: "California",
+          { name: "London",
+            state: "Greater London",
 
-            image: "https://i.ytimg.com/vi/qJFYIuW0_9s/maxresdefault.jpg",
-            country: "USA"
+            image: "http://cdn.pcwallart.com/images/london-at-night-hd-wallpaper-1.jpg",
+            country: "United Kingdom"
           },
           { name: "San Jose",
             state: "California",
