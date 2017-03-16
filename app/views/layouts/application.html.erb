@@ -17,25 +17,55 @@
         <a href="/" class="brand-logo">&nbsp&nbspVagabon</a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
+          <li><%= link_to "Cities", cities_path %></li>
           <% if !current_user %>
-            <li><%= link_to "Sign Up!", new_user_registration_path %></li>
-            <li><%= link_to "Log In!", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Log In", new_user_session_path %></li>
           <% elsif current_user %>
-            <li><%= link_to "Profile!", user_path(current_user) %></li>
-            <li><%= link_to "Sign Out!", destroy_user_session_path, method: "delete" %></li>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></li>
           <% end %>
         </ul>
         <ul class="side-nav" id="mobile-demo">
+          <li><%= link_to "Cities", cities_path %></li>
           <% if !current_user %>
-            <li><%= link_to "Sign Up!", new_user_registration_path %></li>
-            <li><%= link_to "Log In!", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Log In", new_user_session_path %></li>
           <% elsif current_user %>
-            <li><%= link_to "Profile!", user_path(current_user) %></li>
-            <li><%= link_to "Sign Out!", destroy_user_session_path, method: "delete" %></li>
+            <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></li>
           <% end %>
         </ul>
       </div>
     </nav>
+    <% flash.each do |message_type, message| %>
+      <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
+    <% end %>
+
         <%= yield %>
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">Vagabon Inc.</h5>
+            <p class="grey-text text-lighten-4">Your voice and guide to what's best in the world.</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="white-text">Links</h5>
+            <ul>
+              <li><a class="grey-text text-lighten-3" href="/">Home</a></li>
+              <li><a class="grey-text text-lighten-3" href="/cities">Cities</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+          © 2017 Copyright Vagabon Inc.
+          <a class="grey-text text-lighten-4 right" href="https://github.com/puan0601/vagabond">Github</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

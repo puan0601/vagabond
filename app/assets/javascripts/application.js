@@ -13,14 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require materialize-sprockets
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
 
 
   //initializes dropdown location menu on new article form
-    $('select').material_select();
+  $('select').material_select();
 
 
   //initializes content textbox on new article form
@@ -31,5 +30,7 @@ $(document).on('turbolinks:load', function() {
   $('.slider').slider({fullWidth: true, height: 500});
   $(".button-collapse").sideNav();
   $(".dropdown-button").dropdown();
+
+  $('.collapsible').collapsible();
 
 });
