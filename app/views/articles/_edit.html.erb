@@ -10,6 +10,11 @@
       <%= f.label :title %><br />
       <%= f.text_field :title, placeholder: @article.title, required: true %>
     </div>
+
+    <div class="field">
+      <%= f.label :avatar %><br />
+      <%= f.file_field :avatar %>
+    </div>
     <div class="field">
       <%= f.label :content %><br />
       <%= f.text_area(:content, cols: 40, rows: 40, placeholder: @article.content, required: true) %>
