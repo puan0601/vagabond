@@ -34,7 +34,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.0]
       t.string :last_name
       t.string :city
       t.string :email
-      t.string :image
+      t.string :image, default: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTVWIITeMivpUJ-xfADdqy5wxLvB0CQL9exl1FXamfHzXX4hgbCNw'
       t.string :bio
       t.boolean :admin, default: false
 

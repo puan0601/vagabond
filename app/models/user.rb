@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :articles
   has_many :locations, through: :articles
+  alias_attribute :avatar, :image
 end
