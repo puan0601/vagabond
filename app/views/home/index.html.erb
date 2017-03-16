@@ -23,15 +23,48 @@
 </div>
 
 <div class="row">
-  <div class="col s6">
-    <h4 class="center">Popular Locations</h4>
-      <ul>
-        <% @locations.each do |location| %>
-          <li><%= link_to location.name, city_path(location) %></li>
-        <% end %>
-      </ul>
+  <div class="col s12 m6">
+    <h4 class="center">Featured Cities</h4>
+    <% @locations.each do |location| %>
+      <div class="card horizontal">
+        <div class="card-image">
+          <a href="<%= city_path(location) %>">
+            <img src="<%= location.image %>">
+          </a>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+              <h3><%= location.name %></h3>
+            </div>
+          <div class="card-action">
+            <%= link_to "Find Articles!", city_path(location) %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <div class="center">
+      <%= button_to "See All Cities", cities_path , method: "get", class: "waves-effect waves-light btn" %>
+    </div>
   </div>
-  <div class="col s6">
+  <div class="col s12 m6">
     <h4 class="center">Recent Posts</h4>
+    <% @articles.each do |article| %>
+    <div class="card horizontal">
+      <div class="card-image">
+        <img src="<%= article.user.image %>">
+      </div>
+      <div class="card-stacked">
+        <span class="card-title"><%= article.title %> <% if current_user && current_user.id == article.user.id %>
+        <%= link_to 'mode_edit', edit_article_path(article), class: "right material-icons" %>
+        <% end %></span>
+        <div class="card-content">
+          <p><%= truncate(article.content, length: 75, separator: ' ')  %></p>
+        </div>
+        <div class="card-action">
+          <%= link_to "Read More!", article_path(article) %>
+        </div>
+      </div>
+    </div>
+    <% end %>
   </div>
 </div>

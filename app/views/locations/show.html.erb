@@ -1,14 +1,34 @@
-<h1>City</h1>
+<div class="container">
+  <div class="row">
+    <h1><%= @city.name %></h1>
+    <div class="col s12 m4">
+      <img class="responsive-img" src="<%= @city.image %>">
+      <p>State: <%= @city.state %></p>
+      <p>Country: <%= @city.country %></p>
+    </div>
 
-<div>
-  <p><%= @city.name %></p>
-  <p><%= @city.state %></p>
-  <p><%= @city.country %></p>
-  <p><%= @city.image %></p>
+    <div class="col s12 m8">
+      <div class="center">
+        <%= button_to "New Article", new_article_path , method: "get", class: "waves-effect waves-light btn" %>
+      </div>
+      <% @city.articles.each do |article| %>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="<%= article.user.image %>">
+        </div>
+        <div class="card-stacked">
+          <span class="card-title"><%= article.title %><% if current_user && current_user.id == article.user.id %>
+          <%= link_to 'mode_edit', edit_article_path(article), class: "right material-icons" %>
+          <% end %></span>
+          <div class="card-content">
+            <p><%= truncate(article.content, length: 75, separator: ' ')  %></p>
+          </div>
+          <div class="card-action">
+            <%= link_to "Read More!", article_path(article) %>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-<!-- placeholder for articles
-<div>
-  <% @city.articles.each do |a| %>
-    <%= a %>
-  <% end %>
-</div> -->

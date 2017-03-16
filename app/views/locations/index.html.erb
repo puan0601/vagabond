@@ -1,9 +1,13 @@
-<h1>Cities</h1>
-<% @cities.each do |city| %>
-  <div>
-    <p><%= city.name %></p>
-    <p><%= city.state %></p>
-    <p><%= city.country %></p>
-    <p><%= city.image %></p>
-  </div>
-<% end %>
+<h1 class="center">Cities</h1>
+<div class="container">
+  <ul class="collapsible" data-collapsible="accordion">
+    <% @cities.each do |city| %>
+    <li>
+      <div class="collapsible-header"><a href="<%= city_path(city) %>"><%= city.name %></a></div>
+      <div class="collapsible-body">
+        <a href="<%= city_path(city) %>"><img class="responsive-img" src="<%= city.image %>"></a>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+</div>

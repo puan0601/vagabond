@@ -1,40 +1,59 @@
 <div class="container">
-  <% if current_user.id.to_s === params[:id].to_s %>
-  <h3>Welcome to your Profile Page, <%= @user.first_name %></h3>
-  <% else %>
-  <h3><%= @user.first_name %></h3>
-  <% end %>
 
-
-  <div class="picture">
-    <%= image_tag(@user.image) %>
-  </div>
-
-  <div class="info">
-    <ul>
-      <li>Name:</li>
-      <li><%= @user.first_name %> <%= @user.last_name %></li>
-    </ul>
-    <ul>
-      <li>Date Joined:</li>
-      <li><%= @user.created_at %></li>
-    </ul>
-    <ul>
-      <li>Current City:</li>
-      <li><%= @user.city %></li>
-    </ul>
-  </div>
-
-  <% if current_user.id.to_s === params[:id].to_s %>
-    <%= button_to "Edit", edit_user_registration_path , method: "get" %>
-  <% end %>
-
-  <div class="articles">
-    <ul>
-      <% @user.articles.each do |article| %>
-      <li><%= article.title %></li>
-      <li><%= article.content %></li>
+  <div class="row">
+    <div class="col s12 m6">
+      <h4><%= @user.first_name %></h4>
+       <div class="picture">
+          <%= image_tag(@user.image) %>
+      </div>
+      <ul>
+        <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
+      </ul>
+      <ul>
+        <li>Date Joined: <%= @user.created_at.strftime("%B %d, %Y")%></li>
+      </ul>
+      <ul>
+        <li>Current City: <%= @user.city %></li>
+      </ul>
+      <div class="center">
+        <% if current_user && current_user.id.to_s === params[:id].to_s %>
+        <%= button_to "Edit", edit_user_registration_path , method: "get", class: "waves-effect waves-light btn" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col s12 m6">
+      <% if current_user && current_user.id.to_s === params[:id].to_s %>
+      <h4 class="center">Your Posts</h4>
+      <% else %>
+      <h4 class="center"><%= @user.first_name %>'s Posts</h4>
       <% end %>
-    </ul>
+      <div class="center">
+        <%= button_to "New Article", new_article_path , method: "get", class: "waves-effect waves-light btn" %>
+      </div>
+
+      <% @user.articles.each do |article| %>
+      <div class="card horizontal">
+        <div class="card-image">
+          <img src="<%= article.user.image %>">
+        </div>
+        <div class="card-stacked">
+
+          <span class="card-title"><%= article.title %>
+          <% if current_user && current_user.id == article.user.id %>
+          <%= link_to 'mode_edit', edit_article_path(article), class: "right material-icons" %>
+          <% end %>
+          </span>
+          <div class="card-content">
+            <p><%= truncate(article.content, length: 75, separator: ' ')  %></p>
+          </div>
+          <div class="card-action">
+            <%= link_to "Read More!", article_path(article) %>
+            <!-- <div class="col l1 push-l10"> -->
+            <!-- </div> -->
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
   </div>
 </div>
