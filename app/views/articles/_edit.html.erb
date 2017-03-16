@@ -19,12 +19,12 @@
       <%= f.submit "Update Your Article", class: "waves-effect waves-light btn" %>
     </div>
     <br>
-    <hr>
-    <br>
-    <div class="center">
-      <%= button_to 'Delete Article', { controller: :articles, action: :destroy, id: @article.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "red btn" %>
-    </div>
     </div>
   <% end %>
+  <hr>
+  <br>
+  <div class="center">
+    <%= button_to 'Delete Article', { controller: :articles, action: :destroy, id: @article.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "red btn" %>
+  </div>
   <br>
 </div>

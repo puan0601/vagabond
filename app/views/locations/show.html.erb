@@ -8,6 +8,9 @@
     </div>
 
     <div class="col s12 m8">
+      <div class="center">
+        <%= button_to "New Article", new_article_path , method: "get", class: "waves-effect waves-light btn" %>
+      </div>
       <% @city.articles.each do |article| %>
       <div class="card horizontal">
         <div class="card-image">
