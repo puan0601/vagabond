@@ -50,11 +50,11 @@
     <h4 class="center">Recent Posts</h4>
     <% @articles.each do |article| %>
     <div class="card horizontal">
-      <div class="card-image">
-        <img src="<%= article.user.image %>">
+      <div class="card-image valign-wrapper">
+        <%= cl_image_tag(article.user.image, :width => 100, :crop => :thumb, :gravity => :face) %>
       </div>
       <div class="card-stacked">
-        <span class="card-title"><%= article.title %> <% if current_user && current_user.id == article.user.id %>
+        <span class="card-title"><%= article.title %> - <%= article.location.name %><% if current_user && current_user.id == article.user.id %>
         <%= link_to 'mode_edit', edit_article_path(article), class: "right material-icons" %>
         <% end %></span>
         <div class="card-content">
