@@ -1,5 +1,7 @@
 class ArticlesController < ApplicationController
 
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @articles = Article.all
   end
@@ -26,9 +28,10 @@ class ArticlesController < ApplicationController
   def edit
     @locations = Location.all
     @article = Article.find_by_id(params[:id])
-    if current_user.id = @article.user_id
+    if current_user.id == @article.user_id
       render :edit
     else
+      flash[:notice] = "You are not the owner of that article."
       redirect_to user_path
     end
   end
@@ -41,8 +44,13 @@ class ArticlesController < ApplicationController
 
   def destroy
     article = Article.find_by_id(params[:id])
-    article.destroy
-    redirect_to articles_path
+    if current_user.id == article.user_id
+      article.destroy
+      redirect_to articles_path
+    else
+      flash[:notice] = "You are not the owner of that article."
+      redirect_to user_path
+    end
   end
 
   private

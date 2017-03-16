@@ -61,6 +61,11 @@
         <div class="card-action">
           <%= link_to "Read More!", article_path(article) %>
         </div>
+        <% if current_user && current_user.id == article.user.id %>
+          <div class="col m2">
+            <%= link_to 'mode_edit', edit_article_path(article), class: "material-icons" %>
+          </div>
+        <% end %>
       </div>
     </div>
     <% end %>
