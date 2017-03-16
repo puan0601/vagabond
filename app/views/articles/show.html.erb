@@ -21,6 +21,9 @@
           <hr>
           <p><%= @article.content %></p>
         </div>
+      <div class="col m1">
+          <%= link_to 'mode_edit', edit_article_path(@article), class: "material-icons" %>
+      </div>
       </div>
     </div>
   </div>
