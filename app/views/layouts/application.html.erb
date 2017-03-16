@@ -12,29 +12,32 @@
   </head>
 
   <body>
+    <ul id="dropdown1" class="dropdown-content">
+      <% if !current_user %>
+      <li><%= link_to "Create Account", new_user_registration_path %></li>
+      <li><%= link_to "Log In", new_user_session_path %></li>
+      <% elsif current_user %>
+      <li><%= link_to "Profile", user_path(current_user) %></li>
+      <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
+      <% end %>
+    </ul>
     <nav>
       <div class="nav-wrapper">
-        <a href="/" class="brand-logo">&nbsp&nbspVagabon</a>
+        <a href="/" class="brand-logo">&nbsp&nbspVagabon | <small>Made for Travelers, by Travelers</small></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
-          <li><%= link_to "New Article", new_article_path %></li>
-          <li><%= link_to "Cities", cities_path %></li>
-          <% if !current_user %>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
-            <li><%= link_to "Log In", new_user_session_path %></li>
-          <% elsif current_user %>
-            <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></li>
-          <% end %>
+          <li><%= link_to "Create A Post", new_article_path %></li>
+          <li><%= link_to "Browse Cities", cities_path %></li>
+          <li><a class="dropdown-button" data-activates="dropdown1"><i class="material-icons medium">person</i></a></li>
         </ul>
         <ul class="side-nav" id="mobile-demo">
           <li><%= link_to "Cities", cities_path %></li>
           <% if !current_user %>
-            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Create Account", new_user_registration_path %></li>
             <li><%= link_to "Log In", new_user_session_path %></li>
           <% elsif current_user %>
             <li><%= link_to "Profile", user_path(current_user) %></li>
-            <li><%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
           <% end %>
         </ul>
       </div>
@@ -43,7 +46,7 @@
       <%= javascript_tag "Materialize.toast('#{message}', 4000)" %>
     <% end %>
 
-        <%= yield %>
+    <%= yield %>
 
     <footer class="page-footer">
       <div class="container">
