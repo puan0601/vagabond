@@ -1,17 +1,15 @@
-
-<%= form_for @article do |f| %>
+<h2 class="center">Create a New Post</h2>
+<hr>
+<div class="container">
   <div class="row">
-    <div class="input-field col s6 offset-s3">
-      <%=collection_select(:article, :location_id, @locations, :id, :name, prompt: true)%>
+    <div class="col s12 m5 center">
+      <%= render "adventure" %>
     </div>
-    <div class="input-field col s6 offset-s3">
-      <%= f.text_field :title, placeholder: "title" %>
+    <div class="col m2">
+
     </div>
-    <div class="input-field col s6 offset-s3">
-      <%= f.text_area(:content, cols: 40, rows: 40, placeholder: "Type article here") %>
-    </div>
-    <div class="input-field col s6 offset-s3">
-      <%= f.submit "Create new article" %>
+    <div class="z-depth-4 col s12 m5">
+      <%= render "new" %>
     </div>
   </div>
-<% end %>
+</div>
