@@ -21,8 +21,6 @@ $(document).on('turbolinks:load', function() {
   //initializes dropdown location menu on new article form
   $('select').material_select();
 
-  $("select").material_select();
-
     // for HTML5 "required" attribute
   $("select[required]").css({
         display: 'inline',
