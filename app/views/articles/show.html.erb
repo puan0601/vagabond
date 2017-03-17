@@ -11,6 +11,7 @@
           <a href="<%= user_path(@article.user) %>"><p class="truncate"><%= @article.user.first_name %> <%= @article.user.last_name %></p></a>
           <p><%= @article.user.city%></p>
           <p>Joined: <%= @article.user.created_at.strftime("%B %d, %Y") %>
+          <p>Bio: <%= @article.user.bio %>
         </div>
       </div>
     </div>
