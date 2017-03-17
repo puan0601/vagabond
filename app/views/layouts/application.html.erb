@@ -14,10 +14,11 @@
   <body>
     <ul id="dropdown1" class="dropdown-content">
       <% if !current_user %>
-      <li><%= link_to "Create Account", new_user_registration_path %></li>
+      <li><%= link_to "Join", new_user_registration_path %></li>
       <li><%= link_to "Log In", new_user_session_path %></li>
       <% elsif current_user %>
       <li><%= link_to "Profile", user_path(current_user) %></li>
+      <li><%= link_to "Settings", user_account_path %></li>
       <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
       <% end %>
     </ul>
@@ -35,10 +36,11 @@
           <li><%= link_to "Browse Cities", cities_path %></li>
           <hr>
           <% if !current_user %>
-            <li><%= link_to "Create Account", new_user_registration_path %></li>
+            <li><%= link_to "Join", new_user_registration_path %></li>
             <li><%= link_to "Log In", new_user_session_path %></li>
           <% elsif current_user %>
             <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Settings", user_account_path %></li>
             <li><%= link_to "Log Out", destroy_user_session_path, method: "delete" %></li>
           <% end %>
         </ul>

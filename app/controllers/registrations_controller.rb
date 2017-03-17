@@ -1,4 +1,9 @@
 class RegistrationsController < Devise::RegistrationsController
+
+  def account
+    render :account
+  end
+
   protected
   prepend_before_filter :require_no_authentication, only: [:cancel]
 
