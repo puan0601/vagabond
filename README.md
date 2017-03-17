@@ -1,6 +1,6 @@
 # Vagabon
 
-This is a full stack Travel website created with Ruby on Rails by Logan Medina, Brett Monzel, Anton Pugach, and Daniel Thompson.    
+This is a full stack Travel website created with Ruby on Rails by Logan Medina, Brett Monzel, Anton Pugach, and Daniel Thompson.
 
 *Technologies used:
 
@@ -26,9 +26,7 @@ This is a full stack Travel website created with Ruby on Rails by Logan Medina, 
 *Planned features:
 -Incorporate google maps api for mapping locations
 -search for articles
--Enable comments 
+-Enable comments
 -Enable sharing on social media
 -Enable submission of photos with article
 -Enable friending other users.
-
-
