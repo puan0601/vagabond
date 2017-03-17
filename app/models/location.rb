@@ -4,5 +4,6 @@ class Location < ApplicationRecord
 
   validates :name, :state, :country, presence: true
   validates :name, :state, :image, :country, length: {maximum: 255}
+  validates :about, length: {maximum: 1000}
   
 end
