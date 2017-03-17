@@ -1,29 +1,36 @@
 <div class="container">
-  <div class="card horizontal">
-    <div class="card-image">
-      <a href="<%= user_path(@article.user) %>">
-         <%= cl_image_tag(@article.user.image, :height => 100, :crop => :thumb, :gravity => :face) %>
-     </a>
-    </div>
-    <div class="card-stacked">
-      <div class="card-content">
-        <a href="<%= user_path(@article.user) %>"><p class="truncate"><h4><%= @article.user.first_name %> wrote...</h4></p></a>
+  <div class= "row">
+    <div class="col s12 m3" id="user-box">
+      <div class="card-image profile-pic">
+        <a href="<%= user_path(@article.user) %>">
+           <%= cl_image_tag(@article.user.image, :height => 150, :crop => :thumb, :gravity => :face) %>
+       </a>
       </div>
-    </div>
-  </div>
-  <div class="col s12 m7">
-    <h2 class="header"><%= @article.title %></h2>
-    <div class="card">
-      <div class="card-image valign-wrapper">
-        <%= cl_image_tag(@article.avatar, :width => 200) %>
-      </div>
-      <div class="card-stacked">
+      <div class="card-stacked" >
         <div class="card-content">
-          <h6><%= @article.created_at.strftime("%B %d, %Y") %> - <%= @article.location.name %><% if current_user && current_user.id == @article.user.id %>
-          <%= link_to 'mode_edit', edit_article_path(@article), class: "right material-icons" %>
-          <% end %></h6>
-          <hr>
-          <p><%= @article.content %></p>
+          <%= link_to @article.user.first_name, user_path(@article.user) %>
+          <p><%= @article.user.city%></p>
+          <p>Joined: <%= @article.user.created_at.strftime("%B %d, %Y") %>
+          <p>Bio: <%= @article.user.bio %>
+        </div>
+      </div>
+    </div>
+    <div class="col m9">
+      <h4 class="header"><%= @article.title %></h2>
+      <div class="card">
+        <div class="card-image">
+          <%= cl_image_tag(@article.avatar, :width => 150, :crop => :thumb) %>
+        </div>
+        <div class="card-stacked">
+          <div class="card-content">
+            <h6><%= @article.created_at.strftime("%B %d, %Y") %> - <%= @article.location.name %></h6>
+            <hr>
+            <div class="container">
+            <p><%= @article.content %></p>
+            </div>
+            <br>
+            <%= link_to 'mode_edit', edit_article_path(@article), class: "right material-icons" %>
+          </div>
         </div>
       </div>
     </div>
