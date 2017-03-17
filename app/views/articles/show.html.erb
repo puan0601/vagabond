@@ -17,18 +17,17 @@
     </div>
     <div class="col m9">
       <h4 class="header"><%= @article.title %></h2>
-      <div class="card">
-        <div class="card-image">
-          <%= cl_image_tag(@article.avatar, :width => 150, :crop => :thumb) %>
-        </div>
+      <div class="card horizontal">
         <div class="card-stacked">
           <div class="card-content">
+          <div class="card-image valign-wrapper">
+            <%= cl_image_tag(@article.location.image, :width => 100, :crop => :thumb) %>
+          </div>
             <h6><%= @article.created_at.strftime("%B %d, %Y") %> - <%= @article.location.name %></h6>
             <hr>
-            <div class="container">
             <p><%= @article.content %></p>
-            </div>
             <br>
+            <p><%= cl_image_tag(@article.avatar, :height => 200, :crop => :thumb) %></p>
             <%= link_to 'mode_edit', edit_article_path(@article), class: "right material-icons" %>
           </div>
         </div>
@@ -36,3 +35,4 @@
     </div>
   </div>
 </div>
+
