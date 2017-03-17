@@ -4,7 +4,12 @@
     <div class="col s12 m6">
       <h4><%= @user.first_name %></h4>
        <div class="picture">
-          <%= cl_image_tag(@user.image, :height => 200, :crop => :thumb, :gravity => :face) %>
+          <% if @user.image %>
+            <%= cl_image_tag(@user.image, :height => 200, :crop => :thumb, :gravity => :face) %>
+          <% else %>
+            <%= image_tag('https://api.adorable.io/avatars/200/abott@adorable.png') %>
+          <% end %>
+
       </div>
       <ul>
         <li>Name: <%= @user.first_name %> <%= @user.last_name %></li>
