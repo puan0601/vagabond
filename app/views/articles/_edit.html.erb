@@ -21,7 +21,7 @@
     </div>
     <br>
     <div class="center field">
-      <%= f.submit "Update Your Article", class: "waves-effect waves-light btn" %>
+      <%= f.submit "Update Your Post", class: "waves-effect waves-light btn" %>
     </div>
     <br>
     </div>
@@ -29,7 +29,7 @@
   <hr>
   <br>
   <div class="center">
-    <%= button_to 'Delete Article', { controller: :articles, action: :destroy, id: @article.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "red btn" %>
+    <%= button_to 'Delete Post', { controller: :articles, action: :destroy, id: @article.id }, method: :delete, data: { confirm: 'Are you sure?' }, class: "red btn" %>
   </div>
   <br>
 </div>
