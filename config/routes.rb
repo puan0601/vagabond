@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   # User Routes
   get '/users/:id', to: 'users#show', as: 'user'
   as :user do
-    get 'users', to: 'users#show', as: "user_root"
+    get '/users', to: 'users#show', as: "user_root"
   end
 
   devise_scope :user do
