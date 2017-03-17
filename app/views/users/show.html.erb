@@ -27,9 +27,6 @@
       <% else %>
       <h4 class="center"><%= @user.first_name %>'s Posts</h4>
       <% end %>
-      <div class="center">
-        <%= button_to "New Article", new_article_path , method: "get", class: "waves-effect waves-light btn" %>
-      </div>
 
       <% @user.articles.each do |article| %>
       <div class="card horizontal">
