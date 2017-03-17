@@ -19,7 +19,7 @@
         <li>Bio: <%= @user.bio %></li>
       </ul>
       <div class="center">
-        <% if current_user && current_user.id.to_s === params[:id].to_s %>
+        <% if current_user  %>
         <%= button_to "Edit", edit_user_registration_path , method: "get", class: "waves-effect waves-light btn" %>
         <% end %>
       </div>
