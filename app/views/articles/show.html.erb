@@ -1,7 +1,7 @@
 <div class="container">
   <div class= "row">
     <div class="col s12 m3" id="user-box">
-      <div class="card-image">
+      <div class="card-image profile-pic">
         <a href="<%= user_path(@article.user) %>">
            <%= cl_image_tag(@article.user.image, :height => 150, :crop => :thumb, :gravity => :face) %>
        </a>
