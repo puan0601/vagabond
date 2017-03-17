@@ -4,7 +4,7 @@
     <div class="row">
       <div class="field">
         <%= f.label :location %><br />
-        <%=collection_select(:article, :location_id, @locations, :id, :name, prompt: true, required: true)%>
+        <%= collection_select(:article, :location_id, @locations, :id, :name, {prompt: "select a location"}, {required: true}) %>
       </div>
       <div class="field">
         <%= f.label :title %><br />
