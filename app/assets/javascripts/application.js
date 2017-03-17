@@ -21,6 +21,23 @@ $(document).on('turbolinks:load', function() {
   //initializes dropdown location menu on new article form
   $('select').material_select();
 
+  $("select").material_select();
+
+    // for HTML5 "required" attribute
+  $("select[required]").css({
+        display: 'inline',
+        position: 'absolute',
+        float: 'left',
+        padding: 0,
+        margin: 0,
+        height: 0,
+        width: 0,
+        top: '2em',
+        left: '3em'
+  });
+
+
+
 
   //initializes content textbox on new article form
   $('#textarea1').val('New Text');
