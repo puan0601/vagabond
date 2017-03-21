@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  add_crumb("locations") { |instance| instance.send :cities_path }
+  add_crumb("Locations") { |instance| instance.send :cities_path }
 
   def index
     @articles = Article.all
