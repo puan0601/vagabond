@@ -1,4 +1,8 @@
-<h1 class="center">Cities</h1>
+<div class= "container">
+  <br>
+  <%= render_crumbs separator: ' >> '%>
+  <h1 class="center">Cities</h1>
+</div>
 <div class="container">
   <% @cities.each_slice(3) do |grouping| %>
   <div class="row">

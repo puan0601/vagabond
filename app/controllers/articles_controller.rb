@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
-
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-
+  add_crumb("locations") { |instance| instance.send :cities_path }
   def index
     @articles = Article.all
   end
@@ -9,6 +8,7 @@ class ArticlesController < ApplicationController
   def show
     article_id = params[:id]
     @article = Article.find(article_id)
+
   end
 
   def new
@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
 
   def create
     @article = Article.new(article_params)
-    @article.user_id = current_user.id
+    @article.user = current_user
     if @article.save
       redirect_to @article
     end
@@ -47,9 +47,9 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    article = Article.find_by_id(params[:id])
-    if current_user.id == article.user_id
-      article.destroy
+    @article = Article.find_by_id(params[:id])
+    if current_user.id == @article.user_id
+      @farticle.destroy
       redirect_to user_path(current_user)
     else
       flash[:notice] = "You are not the owner of that article."

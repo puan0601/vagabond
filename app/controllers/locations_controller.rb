@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
 
+  add_crumb("locations") { |instance| instance.send :cities_path }
+
   def index
     @cities = Location.all
   end
